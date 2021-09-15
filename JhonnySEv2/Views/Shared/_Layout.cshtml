@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A portal with stuff related to and about me.">
+    <link rel="shortcut icon" type="image/jpg" href="/img/favicon.ico" />
+    <title>@ViewData["Title"]</title>
+    <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Aldrich&family=Allison&display=swap" media="print" onload="this.media='all'" async>
+    <link rel="preload" as="style" href="~/css/Bundle.min.css">
+    <link rel="stylesheet" href="~/css/Bundle.min.css" async />
+    <script src="//kit.fontawesome.com/512e5cde05.js" crossorigin="anonymous" async></script>
+
+    <noscript>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Aldrich&family=Allison&display=swap" />
+    </noscript>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/">Jhonny Li</a>
+        </div>
+        <div class="menu">
+            <ul>
+                @await Html.PartialAsync("Components/_navLinks.cshtml")
+            </ul>
+        </div>
+    </header>
+    @RenderBody()
+
+    <footer>
+
+    </footer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

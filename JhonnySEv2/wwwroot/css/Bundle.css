@@ -1,0 +1,174 @@
+﻿/* aldrich-regular - latin */
+@font-face {
+  font-family: 'Aldrich';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/aldrich-v11-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Aldrich"), url("/fonts/aldrich-v11-latin-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/aldrich-v11-latin-regular.woff2") format("woff2"), url("/fonts/aldrich-v11-latin-regular.woff") format("woff"), url("/fonts/aldrich-v11-latin-regular.ttf") format("truetype"), url("/fonts/aldrich-v11-latin-regular.svg#Aldrich") format("svg");
+  /* Legacy iOS */
+  font-display: swap; }
+
+/* allison-regular - latin */
+@font-face {
+  font-family: 'Allison';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/allison-v1-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Allison"), url("/fonts/allison-v1-latin-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/allison-v1-latin-regular.woff2") format("woff2"), url("/fonts/allison-v1-latin-regular.woff") format("woff"), url("/fonts/allison-v1-latin-regular.ttf") format("truetype"), url("/fonts/allison-v1-latin-regular.svg#Allison") format("svg");
+  /* Legacy iOS */
+  font-display: swap; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  10% { }
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+body {
+  background-color: black;
+  color: gray;
+  font-family: 'Aldrich', sans-serif;
+  font-size: 18px;
+  margin: 0;
+  /*footer{
+        width:100vw;
+        height:5vh;
+        position:sticky;
+        bottom: 0;
+        background-color:darkslategrey;
+    }*/ }
+  body a {
+    color: white;
+    text-decoration: none; }
+    body a:hover {
+      color: deeppink; }
+  body header {
+    width: 100%;
+    max-height: 8vh;
+    min-height: 8vh;
+    position: sticky;
+    top: 0;
+    background-color: #131313;
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    body header div {
+      width: 15%;
+      padding: 0 2vw 0 2vw; }
+      body header div.logo {
+        width: 20%;
+        font-family: 'Allison';
+        font-size: 2em;
+        text-align: left; }
+        body header div.logo a {
+          animation: fadeIn linear 2s;
+          -webkit-animation: fadeIn linear 2s;
+          -moz-animation: fadeIn linear 2s;
+          -o-animation: fadeIn linear 2s;
+          -ms-animation: fadeIn linear 2s; }
+        @media screen and (max-width: 730px) {
+          body header div.logo {
+            width: 100vw;
+            text-align: center; } }
+      body header div.menu {
+        width: 80%;
+        text-align: right; }
+        @media screen and (max-width: 730px) {
+          body header div.menu {
+            display: none; } }
+        body header div.menu ul li {
+          display: inline-block;
+          list-style-type: none;
+          padding-left: 4em; }
+    @media screen and (max-width: 730px) {
+      body header {
+        display: none; } }
+  body section {
+    width: 96vw;
+    min-height: 25vh;
+    padding: 0 2vw 0 2vw; }
+    body section.hero {
+      min-height: 92vh;
+      max-height: 92vh;
+      background-image: url("../img/forrest.webp");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      @media screen and (max-width: 730px) {
+        body section.hero {
+          background-position: 56% 50%; } }
+      body section.hero .contact-info {
+        display: none; }
+        @media screen and (max-width: 730px) {
+          body section.hero .contact-info {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            min-height: 80vh;
+            min-width: 80vw;
+            background-blend-mode: darken;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(50, 50, 50, 0.1));
+            color: white; }
+            body section.hero .contact-info ul {
+              list-style-type: none;
+              text-align: center;
+              padding: 0;
+              font-size: 1.5em;
+              animation: fadeIn linear 2s;
+              -webkit-animation: fadeIn linear 2s;
+              -moz-animation: fadeIn linear 2s;
+              -o-animation: fadeIn linear 2s;
+              -ms-animation: fadeIn linear 2s; }
+              body section.hero .contact-info ul li:first-child {
+                font-family: 'Allison';
+                font-size: 2em; }
+              body section.hero .contact-info ul li {
+                padding: 0 0 25px 0; }
+                body section.hero .contact-info ul li a {
+                  color: white;
+                  text-decoration: none; }
+                  body section.hero .contact-info ul li a:hover {
+                    color: deeppink; } }
+    body section.container {
+      width: 60%;
+      max-width: 60%;
+      margin: 0.5em auto 0 auto; }
+    @media screen and (max-width: 730px) {
+      body section {
+        height: 100vh;
+        width: 100vw;
+        min-height: 100vh;
+        padding: 0; } }
+  @media screen and (max-width: 412px) {
+    body {
+      font-size: 12px; } }
