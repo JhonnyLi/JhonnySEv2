@@ -1,0 +1,17 @@
+﻿@import '../css/colors.scss';
+
+div.error-container {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+
+    div.error-message {
+        display: flex;
+        font-size: 4em;
+        max-height:50%;
+        color: $error-message;
+    }
+}
