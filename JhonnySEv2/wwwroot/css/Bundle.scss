@@ -3,12 +3,14 @@
 @import '../css/mobile.scss';
 @import '../css/effects.scss';
 @import '../css/error.scss';
+@import '../css/components.scss';
 
 body {
-    background-color: $page-background-color;
-    color: $font-color-default;
+    @include full-height;
     @include font-default;
     font-size: $page-default-font-size;
+    background-color: $page-background-color;
+    color: $font-color-default;
     margin: 0;
 
     a {
@@ -21,56 +23,57 @@ body {
     }
 
     header {
-        width: 100%;
-        max-height: 8vh;
-        min-height: 8vh;
-        position: sticky;
-        top: 0;
-        background-color: $page-top-menu-background-color;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        div.grid {
+            display: grid;
+            @include full-width;
+            grid-template-columns: 35% 65%;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            background-color: $page-top-menu-background-color;
 
-        div {
-            width: 15%;
-            padding: 0 2vw 0 2vw;
-
-            &.logo {
-                a {
-                    @include fade-in;
-                }
-
-                width: 20%;
-                @include font-italic;
-                font-size: 2em;
-                text-align: left;
-
-                @media screen and (max-width: $small-screen-threshold) {
-                    width: 100vw;
-                    text-align: center;
-                }
+            @media screen and (max-width: $small-screen-threshold) {
+                grid-template-columns: 100%;
             }
 
-            &.menu {
-                width: 80%;
-                text-align: right;
+            div {
+                @include fade-in(1,75);
+                padding: 0.25em 2em;
 
-                @media screen and (max-width: $small-screen-threshold) {
-                    display: none;
+                &.logo {
+                    @include font-italic;
+                    font-size: 2em;
+                    text-align: left;
+
+                    @media screen and (max-width: $small-screen-threshold) {
+                        text-align: center;
+
+                        @media (orientation: landscape) {
+                            font-size: 2em;
+                        }
+
+                        @media (orientation: portrait) {
+                            font-size: 3.5em;
+                        }
+                    }
                 }
 
-                ul {
-                    li {
-                        display: inline-block;
-                        list-style-type: none;
-                        padding-left: 4em;
+                &.menu {
+                    text-align: right;
+
+                    @media screen and (max-width: $small-screen-threshold) {
+                        display: none;
+                    }
+
+                    ul {
+                        li {
+                            display: inline-block;
+                            list-style-type: none;
+                            padding-left: 4em;
+                        }
                     }
                 }
             }
-        }
-
-        @media screen and (max-width: $small-screen-threshold) {
-            display: none;
         }
     }
 
@@ -80,28 +83,24 @@ body {
         padding: 0 2vw 0 2vw;
 
         &.hero {
-            min-height: 92vh;
-            max-height: 92vh;
-            background-image: url("../img/forrest.webp");
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
+            @include full-height;
+            @include background-image(url("../img/forrest.webp"), cover, center center, no-repeat);
             display: flex;
             justify-content: center;
             align-items: center;
 
             @media screen and (max-width: $small-screen-threshold) {
-                background-position: 56% 50%;
+                background-position: 50% 50%;
             }
 
             .contact-info {
                 display: none;
 
                 @media screen and (max-width: $small-screen-threshold) {
-                    display: flex;
+                    display: grid;
                     align-content: center;
                     justify-content: center;
-                    min-height: 80vh;
+                    min-height: 60vh;
                     min-width: 80vw;
                     background-blend-mode: darken;
                     background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(50, 50, 50, 0.1));
@@ -110,17 +109,18 @@ body {
                     ul {
                         list-style-type: none;
                         text-align: center;
-                        padding: 0;
-                        font-size: 1.5em;
-                        @include fade-in;
-
-                        li:first-child {
-                            @include font-italic;
-                            font-size: 2em;
-                        }
+                        @include fade-in(1,75);
 
                         li {
-                            padding: 0 0 25px 0;
+                            @media (orientation: landscape) {
+                                font-size: 1.5em;
+                                padding: 0.5em 0;
+                            }
+
+                            @media (orientation: portrait) {
+                                font-size: 2.5em;
+                                padding: 1em 0;
+                            }
 
                             a {
                                 color: $font-color-link;
@@ -135,29 +135,9 @@ body {
                 }
             }
         }
-
-        &.container {
-            width: 60%;
-            max-width: 60%;
-            margin: 0.5em auto 0 auto;
-        }
-
-        @media screen and (max-width: $small-screen-threshold) {
-            height: 100vh;
-            width: 100vw;
-            min-height: 100vh;
-            padding: 0;
-        }
     }
-    /*footer{
-        width:100vw;
-        height:5vh;
-        position:sticky;
-        bottom: 0;
-        background-color:darkslategrey;
-    }*/
 
     @media screen and (max-width: $minimum-screen-threshold) {
-        font-size: 12px;
+        font-size: $page-small-screen-font-size;
     }
 }

@@ -5,13 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="error-container">
+    @*<div class="error-message">
+        @Model.Title
+    </div>*@
+    <img src="@Model.Url" />
     <div class="error-message">
         @Model.Title
     </div>
-    <img src="@Model.Url" />
-    <div class="error-message">
+    @*<div class="error-message">
         @Model.Message
-    </div>
+    </div>*@
 
 </div>
-

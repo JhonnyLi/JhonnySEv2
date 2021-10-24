@@ -1,0 +1,14 @@
+﻿@mixin full-width {
+    width:100vw;
+}
+
+@mixin full-height {
+    height: 100vh;
+}
+
+@mixin background-image($url, $size: cover, $position: center center, $repeat: no-repeat) {
+    background-image: $url;
+    background-size: $size;
+    background-position: $position;
+    background-repeat: $repeat;
+}

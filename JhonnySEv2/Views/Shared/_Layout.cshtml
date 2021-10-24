@@ -19,19 +19,12 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-            <a href="/">Jhonny Li</a>
-        </div>
-        <div class="menu">
-            <ul>
-                @await Html.PartialAsync("Components/_navLinks.cshtml")
-            </ul>
-        </div>
+        @{await Html.RenderPartialAsync("Components/_topHeader"); }
     </header>
+
     @RenderBody()
 
     <footer>
-
     </footer>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

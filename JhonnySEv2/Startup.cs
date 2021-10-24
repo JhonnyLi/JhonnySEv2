@@ -17,7 +17,6 @@ namespace JhonnySEv2
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews(options => 
@@ -32,7 +31,6 @@ namespace JhonnySEv2
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -45,7 +43,15 @@ namespace JhonnySEv2
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.UseStatusCodePagesWithReExecute("/Home/HandleError/{0}");
+            app.Use(async (context, next) =>
+            {
+                await next();
+                if (context.Response.StatusCode == 404)
+                {
+                    context.Request.Path = $"/Home";
+                    await next();
+                }
+            });
             app.UseStaticFiles(new StaticFileOptions
             {
                 OnPrepareResponse = ctx =>
@@ -55,7 +61,6 @@ namespace JhonnySEv2
                         "public,max-age=" + durationInSeconds;
                 }
             });
-
 
             app.UseRouting();
 

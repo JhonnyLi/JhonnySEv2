@@ -1,26 +1,18 @@
 ﻿
-@mixin fade-in {
-    -webkit-animation: fadeIn linear 2s;
-    -moz-animation: fadeIn linear 2s;
-    -o-animation: fadeIn linear 2s;
-    -ms-animation: fadeIn linear 2s;
-    animation: fadeIn linear 2s;
+@mixin fade-in($seconds: 1, $startFramePercent: 1 ) {
+    -webkit-animation: fadeIn linear #{$seconds}s;
+    -moz-animation: fadeIn linear #{$seconds}s;
+    -o-animation: fadeIn linear #{$seconds}s;
+    animation: fadeIn linear #{$seconds}s;
+    @include keyframes($startFramePercent);
 }
 
-@keyframes fadeIn {
+@mixin fadeinKeyframes($startFramePercent) {
     0% {
         opacity: 0;
     }
-    10%{
-    }
 
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes fadeIn {
-    0% {
+    #{$startFramePercent}% {
         opacity: 0;
     }
 
@@ -29,32 +21,22 @@
     }
 }
 
-@-webkit-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
+@mixin keyframes($startFramePercent) {
+    @at-root {
+        @keyframes fadeIn {
+            @include fadeinKeyframes($startFramePercent);
+        }
 
-    100% {
-        opacity: 1;
-    }
-}
+        @-moz-keyframes fadeIn {
+            @include fadeinKeyframes($startFramePercent);
+        }
 
-@-o-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
+        @-webkit-keyframes fadeIn {
+            @include fadeinKeyframes($startFramePercent);
+        }
 
-    100% {
-        opacity: 1;
-    }
-}
-
-@-ms-keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
+        @-o-keyframes fadeIn {
+            @include fadeinKeyframes($startFramePercent);
+        }
     }
 }
