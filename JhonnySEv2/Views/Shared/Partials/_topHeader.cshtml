@@ -1,0 +1,13 @@
+﻿<div class="grid">
+    <div class="navbar-week mobile">
+        @{ await Html.RenderPartialAsync("_navInfo");}
+    </div>
+    <div class="logo">
+        <a href="/">Jhonny Li</a>
+    </div>
+    <div class="menu mobile">
+        <ul>
+            @{await Html.RenderPartialAsync("_navLinks");}
+        </ul>
+    </div>
+</div>

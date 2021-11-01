@@ -5,7 +5,7 @@
 <section class="hero">
     <div class="contact-info">
         <ul>
-            @await Html.PartialAsync("../Shared/Components/_navLinks.cshtml")
+            @{ await Html.RenderPartialAsync("_navLinks"); }
         </ul>
     </div>
 </section>
