@@ -1,0 +1,17 @@
+﻿@import '../css/colors.scss';
+@import '../css/fonts.scss';
+@import '../css/mobile.scss';
+@import '../css/components.scss';
+
+@mixin layout-body-defaults {
+    @include full-height;
+    @include font-default;
+    font-size: $page-default-font-size;
+    background-color: $page-background-color;
+    color: $font-color-default;
+    margin: 0;
+
+    @media screen and (max-width: $minimum-screen-threshold) {
+        font-size: $page-small-screen-font-size;
+    }
+}

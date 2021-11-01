@@ -1,0 +1,13 @@
+﻿@import '../css/colors.scss';
+@import '../css/fonts.scss';
+
+@mixin elements-defaults {
+    a {
+        color: $font-color-link;
+        text-decoration: none;
+
+        &:hover {
+            color: $font-color-link-hover;
+        }
+    }
+}

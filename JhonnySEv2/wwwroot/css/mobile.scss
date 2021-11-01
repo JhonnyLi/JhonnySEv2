@@ -1,2 +1,8 @@
 ﻿$minimum-screen-threshold: 500px;
 $small-screen-threshold: 1023px;
+
+@mixin hide-on-small-screens {
+    @media screen and (max-width: $small-screen-threshold) {
+        display: none;
+    }
+}
