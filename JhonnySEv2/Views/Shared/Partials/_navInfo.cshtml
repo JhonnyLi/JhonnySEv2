@@ -1,7 +1,9 @@
 ﻿@using JhonnySEv2.Helpers;
 @{
     var currentWeek = CultureHelpers.GetCurrentWeek();
+    var currentCulture = CultureHelpers.GetCurrentCulture();
+    var weekNumberTitle = $"Veckonummer\r\nAktiv kultur: {currentCulture}";
 }
-<div class="nav-info" title="Veckonummer">
+<div class="nav-info" title="@weekNumberTitle">
     @currentWeek
 </div>
