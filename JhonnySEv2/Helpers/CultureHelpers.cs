@@ -16,7 +16,7 @@ namespace JhonnySEv2.Helpers
             return currentWeek;
         }
 
-        public static string GetCurrentCulture()
+        public static string GetCurrentCultureName()
         {
             var currentCulture = CultureInfo.CurrentCulture;
             
