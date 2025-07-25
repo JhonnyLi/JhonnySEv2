@@ -1,14 +1,14 @@
-﻿@import '../css/layout.scss';
-@import '../css/header.scss';
-@import '../css/elements.scss';
-@import '../css/hero.scss';
+﻿@use 'layout.mixins' as layout;
+@use 'header.mixins' as header;
+@use 'elements.mixins' as elements;
+@use 'hero.mixins' as hero;
 
 body {
-    @include layout-body-defaults;
-    @include elements-defaults;
+    @include layout.layout-body-defaults;
+    @include elements.elements-defaults;
     
     header {
-        @include header;
+        @include header.header;
     }
 
     section {
@@ -16,6 +16,6 @@ body {
         min-height: 25vh;
         padding: 0 2vw 0 2vw;
 
-        @include hero;
+        @include hero.hero;
     }
 }

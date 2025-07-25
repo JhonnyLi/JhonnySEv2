@@ -1,0 +1,18 @@
+﻿@use 'colors';
+@use 'fonts';
+@use 'fonts.mixins' as font;
+@use 'mobile';
+@use 'components.mixins' as comp;
+
+@mixin layout-body-defaults {
+    @include comp.full-height;
+    @include font.font-default;
+    font-size: fonts.$page-default-font-size;
+    background-color: colors.$page-background-color;
+    color: colors.$font-color-default;
+    margin: 0;
+
+    @media screen and (max-width: mobile.$minimum-screen-threshold) {
+        font-size: fonts.$page-small-screen-font-size;
+    }
+}

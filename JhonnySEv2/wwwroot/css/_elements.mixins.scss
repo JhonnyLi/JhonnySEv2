@@ -1,0 +1,13 @@
+﻿@use 'colors';
+@use 'fonts';
+
+@mixin elements-defaults {
+    a {
+        color: colors.$font-color-link;
+        text-decoration: none;
+
+        &:hover {
+            color: colors.$font-color-link-hover;
+        }
+    }
+}

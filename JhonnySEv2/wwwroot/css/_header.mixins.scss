@@ -1,7 +1,8 @@
-﻿@import '../css/fonts.scss';
-@import '../css/mobile.scss';
-@import '../css/components.scss';
-@import '../css/effects.scss';
+﻿@use 'fonts';
+@use 'fonts.mixins' as font;
+@use 'mobile';
+@use 'components.mixins' as comp;
+@use 'effects.mixins' as effects;
 
 $header-padding-width-default: 2em;
 $header-padding-height-default: 0.25em;
@@ -18,11 +19,11 @@ $header-background-color: #131313;
         padding: $header-padding-height-default $header-padding-width-default;
         align-items: center;
 
+        @include comp.full-width-custom($header-padding-totalwidth-default);
         @include header-grid-settings;
-        @include full-width-custom($header-padding-totalwidth-default);
 
         div {
-            @include fade-in(1,75);
+            @include effects.fade-in(1,75);
 
             @include header-info;
 
@@ -31,28 +32,30 @@ $header-background-color: #131313;
             @include header-menu;
 
             &.mobile {
-                @include hide-on-small-screens;
+                @include mobile.hide-on-small-screens;
             }
         }
     }
 }
 
 @mixin header-grid-settings {
-    display: grid;
-    grid-template-columns: $header-grid-template-columns-default;
+    & {
+        display: grid;
+        grid-template-columns: $header-grid-template-columns-default;
+    }
 
-    @media screen and (max-width: $small-screen-threshold) {
+    @media screen and (max-width: mobile.$small-screen-threshold) {
         grid-template-columns: $header-grid-template-columns-one;
     }
 }
 
 @mixin header-logo {
     &.logo {
-        @include font-italic;
+        @include font.font-italic;
         font-size: 2em;
         text-align: left;
 
-        @media screen and (max-width: $small-screen-threshold) {
+        @media screen and (max-width: mobile.$small-screen-threshold) {
             text-align: center;
 
             @media (orientation: landscape) {

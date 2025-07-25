@@ -7,7 +7,9 @@
 }
 
 @mixin full-width-custom($totalPadding) {
-    width: calc(100vw - #{$totalPadding});
+    & {
+        width: calc(100vw - #{$totalPadding});
+    }
 }
 
 @mixin background-image($url, $size: cover, $position: center center, $repeat: no-repeat) {

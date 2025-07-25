@@ -28,11 +28,3 @@ $page-small-screen-font-size: 12px;
     url('/fonts/allison-v1-latin-regular.svg#Allison') format('svg'); /* Legacy iOS */
     font-display: swap;
 }
-
-@mixin font-default {
-    font-family: 'Aldrich', sans-serif;
-}
-
-@mixin font-italic {
-    font-family: 'Allison';
-}

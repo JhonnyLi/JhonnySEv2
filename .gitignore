@@ -349,6 +349,7 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /JhonnySEv2/Properties/ServiceDependencies
-/JhonnySEv2/wwwroot/css/Bundle.css
-/JhonnySEv2/wwwroot/css/Bundle.min.css
-/JhonnySEv2/wwwroot/css/Bundle.min.css.gz
+*.css
+*.css.gz
+*.css.map
+

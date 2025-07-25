@@ -1,24 +1,24 @@
-﻿@import '../css/components.scss';
-@import '../css/mobile.scss';
-@import '../css/colors.scss';
-@import '../css/effects.scss';
+﻿@use 'components.mixins' as comp;
+@use 'mobile';
+@use 'colors';
+@use 'effects.mixins' as effects;
 
 @mixin hero {
     &.hero {
-        @include full-height;
-        @include background-image(url("../img/forrest.webp"), cover, center center, no-repeat);
+        @include comp.full-height;
+        @include comp.background-image(url("../img/forrest.webp"), cover, center center, no-repeat);
         display: flex;
         justify-content: center;
         align-items: center;
 
-        @media screen and (max-width: $small-screen-threshold) {
+        @media screen and (max-width: mobile.$small-screen-threshold) {
             background-position: 50% 50%;
         }
 
         .contact-info {
             display: none;
 
-            @media screen and (max-width: $small-screen-threshold) {
+            @media screen and (max-width: mobile.$small-screen-threshold) {
                 display: grid;
                 align-content: center;
                 justify-content: center;
@@ -26,12 +26,12 @@
                 min-width: 80vw;
                 background-blend-mode: darken;
                 background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(50, 50, 50, 0.1));
-                color: $font-color-link;
+                color: colors.$font-color-link;
 
                 ul {
                     list-style-type: none;
                     text-align: center;
-                    @include fade-in(1,75);
+                    @include effects.fade-in(1,75);
 
                     li {
                         @media (orientation: landscape) {
@@ -45,11 +45,11 @@
                         }
 
                         a {
-                            color: $font-color-link;
+                            color: colors.$font-color-link;
                             text-decoration: none;
 
                             &:hover {
-                                color: $font-color-link-hover;
+                                color: colors.$font-color-link-hover;
                             }
                         }
                     }

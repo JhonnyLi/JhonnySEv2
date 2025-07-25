@@ -49,15 +49,15 @@ namespace JhonnySEv2
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-            app.Use(async (context, next) =>
-            {
-                await next();
-                if (context.Response.StatusCode == 404)
-                {
-                    context.Request.Path = $"/Home";
-                    await next();
-                }
-            });
+            // app.Use(async (context, next) =>
+            // {
+            //     await next();
+            //     if (context.Response.StatusCode == 404)
+            //     {
+            //         context.Request.Path = $"/Home";
+            //         await next();
+            //     }
+            // });
             app.UseStaticFiles(new StaticFileOptions
             {
                 OnPrepareResponse = ctx =>
