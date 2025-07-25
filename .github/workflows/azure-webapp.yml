@@ -36,7 +36,7 @@ jobs:
       with:
         name: build-artifacts
         path: .
-  
+
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -54,7 +54,18 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Test
-      run: dotnet test --no-build --configuration Release
+      run: dotnet test --no-build --configuration Release --logger "trx;LogFileName=test-results.trx"
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-results
+        path: '**/test-results.trx'
+
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      with:
+        files: '**/test-results.trx'
 
   publish-deploy:
     name: Publish and Deploy
