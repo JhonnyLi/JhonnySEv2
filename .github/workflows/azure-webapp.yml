@@ -9,7 +9,8 @@ on:
       - main
 
 jobs:
-  build-test-deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +31,46 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release
 
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifacts
+        path: .
+  
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-artifacts
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
     - name: Test
       run: dotnet test --no-build --configuration Release
+
+  publish-deploy:
+    name: Publish and Deploy
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: build-artifacts
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
 
     - name: Publish
       run: dotnet publish JhonnySEv2/JhonnySEv2.csproj -c Release -o ./publish
