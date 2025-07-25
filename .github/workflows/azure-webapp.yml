@@ -21,6 +21,9 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
+    - name: Install Sass
+      run: npm install -g sass
+
     - name: Restore dependencies
       run: dotnet restore
 
