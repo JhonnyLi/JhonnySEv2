@@ -33,4 +33,12 @@
     <Exec Command="sass --style=compressed Styles/Bundle.scss wwwroot/css/Bundle.min.css" />
   </Target>
 
+  <Target Name="CleanCssFolder" AfterTargets="Clean">
+    <Message Importance="high" Text="🧹 Cleaning all generated CSS in wwwroot/css..." />
+    <ItemGroup>
+      <GeneratedCss Include="wwwroot/css/*.css;wwwroot/css/*.map" />
+    </ItemGroup>
+    <Delete Files="@(GeneratedCss)" />
+  </Target>
+
 </Project>
