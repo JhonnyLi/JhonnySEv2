@@ -28,4 +28,9 @@
     <None Include="compilerconfig.json" />
   </ItemGroup>
 
+  <Target Name="CompileSass" AfterTargets="Build">
+    <Exec Command="sass Styles/Bundle.scss wwwroot/css/Bundle.css" />
+    <Exec Command="sass --style=compressed Styles/Bundle.scss wwwroot/css/Bundle.min.css" />
+  </Target>
+
 </Project>
