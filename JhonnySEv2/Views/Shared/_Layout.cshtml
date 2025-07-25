@@ -4,18 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A portal with stuff related to and about me.">
+    
     <link rel="shortcut icon" type="image/jpg" href="/img/favicon.ico" />
     <title>@ViewData["Title"]</title>
+    
+    <!-- Preconnect to Google Fonts domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Aldrich&family=Allison&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aldrich&family=Allison&display=swap" media="print" onload="this.media='all'">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload the stylesheet -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Aldrich&family=Allison&display=swap">
+
+    <!-- Load the stylesheet non-blocking -->
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Allison&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
     <link rel="preload" as="style" href="~/css/Bundle.min.css">
-    <link rel="stylesheet" href="~/css/Bundle.min.css" async />
+    <link rel="stylesheet" href="~/css/Bundle.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="~/css/Bundle.min.css">
+    </noscript>
+
     <script src="https://kit.fontawesome.com/512e5cde05.js" crossorigin="anonymous" async></script>
 
+    <!-- Fallback for no-JS -->
     <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aldrich&family=Allison&display=swap" />
+      <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Allison&display=swap" rel="stylesheet" />
     </noscript>
+
 </head>
 <body>
     <header>
