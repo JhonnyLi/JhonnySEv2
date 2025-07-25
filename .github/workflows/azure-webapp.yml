@@ -34,7 +34,7 @@ jobs:
       run: dotnet test --no-build --configuration Release
 
     - name: Publish
-      run: dotnet publish -c Release -o ./publish
+      run: dotnet publish JhonnySEv2/JhonnySEv2.csproj -c Release -o ./publish
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v3
