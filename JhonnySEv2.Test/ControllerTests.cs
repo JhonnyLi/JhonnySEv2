@@ -47,5 +47,19 @@ namespace JhonnySEv2.Test
             var redirectResult = Assert.IsType<RedirectResult>(result);
             Assert.Equal("https://www.github.com/jhonnyli", redirectResult.Url);
         }
+
+        [Fact]
+        public void ErrorIndex_WithErrorStatus_ReturnsAViewResult()
+        {
+            // Arrange
+            var mockRepo = new Mock<ILogger<ErrorController>>();
+            var controller = new ErrorController(mockRepo.Object);
+        
+            // Act
+            var result = controller.Index(500); // Pass an error status code
+        
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+        }
     }
 }

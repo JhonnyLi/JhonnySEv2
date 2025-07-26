@@ -17,16 +17,5 @@ namespace JhonnySEv2.Controllers
         {
             return View();
         }
-
-        public IActionResult Error(int? statusCode = null)
-        {
-            if (statusCode == null || statusCode == 200)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
-            ViewData["StatusCode"] = statusCode;
-            return View();
-        }
     }
 }

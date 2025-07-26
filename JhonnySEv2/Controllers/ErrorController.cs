@@ -6,9 +6,9 @@ namespace JhonnySEv2.Controllers
     [ResponseCache(CacheProfileName = "default")]
     public class ErrorController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<ErrorController> _logger;
 
-        public ErrorController(ILogger<HomeController> logger)
+        public ErrorController(ILogger<ErrorController> logger)
         {
             _logger = logger;
         }
