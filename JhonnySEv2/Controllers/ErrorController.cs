@@ -1,29 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace JhonnySEv2.Controllers
 {
     [ResponseCache(CacheProfileName = "default")]
-    public class HomeController : Controller
+    public class ErrorController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public ErrorController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? statusCode = null)
         {
-            return View();
-        }
-
-        public IActionResult Error(int? statusCode = null)
-        {
-            if (statusCode == null || statusCode == 200)
+            if (statusCode == null || statusCode == 200 || statusCode == 404)
             {
                 return RedirectToAction("Index", "Home");
             }
+
+             _logger.LogError($"Error occurred with status code: {statusCode}");
 
             ViewData["StatusCode"] = statusCode;
             return View();

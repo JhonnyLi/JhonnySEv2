@@ -33,5 +33,19 @@ namespace JhonnySEv2.Test
             // Assert
             var viewResult = Assert.IsType<RedirectResult>(result);
         }
+
+        [Fact]
+        public void Index_ReturnsRedirectToGithub()
+        {
+            // Arrange
+            var controller = new GithubController();
+    
+            // Act
+            var result = controller.Index();
+    
+            // Assert
+            var redirectResult = Assert.IsType<RedirectResult>(result);
+            Assert.Equal("https://www.github.com/jhonnyli", redirectResult.Url);
+        }
     }
 }
