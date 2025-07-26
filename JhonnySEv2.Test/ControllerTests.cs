@@ -45,7 +45,21 @@ namespace JhonnySEv2.Test
 
             // Assert
             var redirectResult = Assert.IsType<RedirectResult>(result);
-            Assert.Equal("https://www.github.com/jhonnyli", redirectResult.Url);
+            Assert.Equal(controller._githubUrl, redirectResult.Url);
+        }
+
+                [Fact]
+        public void Index_ReturnsRedirectToLinkedIn()
+        {
+            // Arrange
+            var controller = new RedirectController();
+
+            // Act
+            var result = controller.Linkedin();
+
+            // Assert
+            var redirectResult = Assert.IsType<RedirectResult>(result);
+            Assert.Equal(controller._linkedinUrl, redirectResult.Url);
         }
 
         [Fact]
@@ -56,7 +70,7 @@ namespace JhonnySEv2.Test
             var controller = new ErrorController(mockRepo.Object);
         
             // Act
-            var result = controller.Index(500); // Pass an error status code
+            var result = controller.Index(500);
         
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);

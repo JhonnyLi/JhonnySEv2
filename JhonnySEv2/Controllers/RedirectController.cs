@@ -7,14 +7,17 @@ namespace JhonnySEv2.Controllers
     /// </summary>
     public class RedirectController : Controller
     {
+        public readonly string _githubUrl = "https://www.github.com/jhonnyli";
+        public readonly string _linkedinUrl = "https://www.linkedin.com/in/jhonnyli/";
+
         public IActionResult Github()
         {
-            return Redirect("https://www.github.com/jhonnyli");
+            return Redirect(_githubUrl);
         }
 
         public IActionResult Linkedin()
         {
-            return Redirect("https://www.linkedin.com/in/jhonnyli/");
+            return Redirect(_linkedinUrl);
         }
     }
 }
