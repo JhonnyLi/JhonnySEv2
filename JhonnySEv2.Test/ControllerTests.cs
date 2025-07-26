@@ -25,10 +25,10 @@ namespace JhonnySEv2.Test
         public void GithubIndex_ReturnsARedirectResult_IsSuccessful()
         {
             // Arrange
-            var controller = new GithubController();
+            var controller = new RedirectController();
 
             // Act
-            var result = controller.Index();
+            var result = controller.Github();
 
             // Assert
             var viewResult = Assert.IsType<RedirectResult>(result);
@@ -38,11 +38,11 @@ namespace JhonnySEv2.Test
         public void Index_ReturnsRedirectToGithub()
         {
             // Arrange
-            var controller = new GithubController();
-    
+            var controller = new RedirectController();
+
             // Act
-            var result = controller.Index();
-    
+            var result = controller.Github();
+
             // Assert
             var redirectResult = Assert.IsType<RedirectResult>(result);
             Assert.Equal("https://www.github.com/jhonnyli", redirectResult.Url);
